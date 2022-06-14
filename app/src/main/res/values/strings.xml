@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Kotlin_FileManager</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="nav_language">Language</string>
+    <string name="nav_rateus">Rate us</string>
+    <string name="nav_moreapp">More app (Ad)</string>
+    <string name="nav_feedback">Feedback</string>
+    <string name="nav_sharaapp">Share app</string>
+    <string name="nav_privaci">Privaci Policy</string>
+</resources>

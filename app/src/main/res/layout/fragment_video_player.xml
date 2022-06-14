@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".video.videoplayer.VideoPlayerFragment">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#DC53A6"
+        android:id="@+id/toolBarPlayerVideo">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="12dp"
+            android:src="@drawable/ic_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Video"
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+
+    <com.google.android.exoplayer2.ui.PlayerView
+        android:layout_below="@+id/toolBarPlayerVideo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/exoplayerView"
+        android:background="#000000"
+        app:controller_layout_id="@layout/custom_playback_view"
+        app:fastforward_increment="10000"
+        app:hide_on_touch="true"
+        app:player_layout_id="@layout/exo_player_view"
+        app:resize_mode="fit"
+        app:show_timeout="4000"
+        app:surface_type="surface_view"
+        app:rewind_increment="10000"
+        app:shutter_background_color="@color/black"
+        app:use_controller="true" />
+    </RelativeLayout>
+</layout>
