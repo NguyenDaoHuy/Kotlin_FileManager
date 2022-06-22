@@ -15,6 +15,7 @@ import com.example.kotlin_filemanager.R
 import com.example.kotlin_filemanager.adapter.FolderRecyclerViewAdapter
 import com.example.kotlin_filemanager.audio.audiofiles.AudioFileFragment
 import com.example.kotlin_filemanager.databinding.FragmentAudioFolderBinding
+import com.example.kotlin_filemanager.image.imagefiles.ImageFileFragment
 
 
 class AudioFolderFragment : Fragment(R.layout.fragment_audio_folder),FolderRecyclerViewAdapter.FolderInterface,IAudioFolderView {
@@ -69,6 +70,8 @@ class AudioFolderFragment : Fragment(R.layout.fragment_audio_folder),FolderRecyc
             LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         adapter.notifyDataSetChanged()
     }
-
+    companion object {
+        val TAG: String = AudioFolderFragment::class.java.name
+    }
 
 }

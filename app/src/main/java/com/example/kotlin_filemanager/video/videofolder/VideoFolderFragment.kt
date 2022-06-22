@@ -14,6 +14,7 @@ import com.example.kotlin_filemanager.MainActivity
 import com.example.kotlin_filemanager.R
 import com.example.kotlin_filemanager.adapter.FolderRecyclerViewAdapter
 import com.example.kotlin_filemanager.databinding.FragmentVideoFolderBinding
+import com.example.kotlin_filemanager.image.imagefiles.ImageFileFragment
 import com.example.kotlin_filemanager.video.videofiles.VideoFilesFragment
 
 
@@ -75,5 +76,7 @@ class VideoFolderFragment : Fragment(R.layout.fragment_video_folder),FolderRecyc
             LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         adapter.notifyDataSetChanged()
     }
-
+    companion object {
+        val TAG: String = VideoFolderFragment::class.java.name
+    }
 }

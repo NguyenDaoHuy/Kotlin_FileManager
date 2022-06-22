@@ -75,4 +75,7 @@ class ImageFolderFragment : Fragment(R.layout.fragment_image_folder),FolderRecyc
             LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         adapter.notifyDataSetChanged()
     }
+    companion object {
+        val TAG: String = ImageFolderFragment::class.java.name
+    }
 }

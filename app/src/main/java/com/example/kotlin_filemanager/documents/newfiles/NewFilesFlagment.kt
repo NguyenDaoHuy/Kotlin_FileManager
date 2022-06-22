@@ -17,6 +17,7 @@ import com.example.kotlin_filemanager.R
 import com.example.kotlin_filemanager.databinding.FragmentNewFilesFlagmentBinding
 import com.example.kotlin_filemanager.documents.documentfiles.DocumentsFileAdapter
 import com.example.kotlin_filemanager.documents.documentfiles.IDocumentFileView
+import com.example.kotlin_filemanager.image.imagefiles.ImageFileFragment
 import com.example.kotlin_filemanager.model.Item
 import java.io.File
 
@@ -72,5 +73,8 @@ class NewFilesFlagment : Fragment(R.layout.fragment_new_files_flagment),
         binding.rvNewFile.adapter = adapter
         binding.rvNewFile.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         adapter.notifyDataSetChanged()
+    }
+    companion object {
+        val TAG: String = NewFilesFlagment::class.java.name
     }
 }

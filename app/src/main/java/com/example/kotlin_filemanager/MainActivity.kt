@@ -32,33 +32,16 @@ import com.example.kotlin_filemanager.model.Category
 import com.example.kotlin_filemanager.video.videofolder.VideoFolderFragment
 
 @Suppress("ControlFlowWithEmptyBody")
-class MainActivity : AppCompatActivity(),CategoryAdapter.CategoryInterFace {
-    private var categoryArrayList : ArrayList<Category>? = null
+class MainActivity : AppCompatActivity() {
     private var binding : ActivityMainBinding? = null
     private val mActivity : Activity = this
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this,R.layout.activity_main)
-        displayCategory()
+        getFragment(MainFragment())
         connectPermission()
     }
 
-    private fun displayCategory() {
-        categoryArrayList = ArrayList()
-        categoryArrayList!!.add(Category(1, "Images", R.drawable.icons_image, 10))
-        categoryArrayList!!.add(Category(2, "Audio", R.drawable.icons_new_files, 10))
-        categoryArrayList!!.add(Category(3, "Videos", R.drawable.icons_video, 10))
-        categoryArrayList!!.add(Category(4, "Documents", R.drawable.icons8_documents, 10))
-        categoryArrayList!!.add(Category(5, "Apps", R.drawable.icons_android, 120))
-        categoryArrayList!!.add(Category(6, "New files", R.drawable.icon_file, 10))
-        categoryArrayList!!.add(Category(7, "Cloud", R.drawable.icons_cloud, 120))
-        categoryArrayList!!.add(Category(8, "Remote", R.drawable.icons8_remote, 120))
-        categoryArrayList!!.add(Category(9, "Access device", R.drawable.icons_remote, 120))
-        val categoryAdapter = CategoryAdapter(this)
-        val layoutManager :RecyclerView.LayoutManager =GridLayoutManager(applicationContext,3,RecyclerView.VERTICAL, false)
-        binding!!.rvDanhMuc.layoutManager = layoutManager
-        binding!!.rvDanhMuc.adapter = categoryAdapter
-    }
     private fun connectPermission() {
         if (checkPermission()) {
 
@@ -154,40 +137,10 @@ class MainActivity : AppCompatActivity(),CategoryAdapter.CategoryInterFace {
         }
     }
 
-    override val count: Int
-        get() = categoryArrayList!!.size
-
-    override fun category(position: Int): Category {
-        return categoryArrayList!![position]
-    }
-
-    override fun onClickItem(position: Int) {
-        val category = categoryArrayList!![position]
-        val id = category.id
-        if (id == 1) {
-            getFragment(ImageFolderFragment())
-        } else if (id == 2) {
-            getFragment(AudioFolderFragment())
-        } else if (id == 3) {
-            getFragment(VideoFolderFragment())
-        } else if (id == 4) {
-            getFragment(DocumentsFildeFragment())
-        } else if (id == 5) {
-            Toast.makeText(this, "Not data", Toast.LENGTH_SHORT).show()
-        } else if (id == 6) {
-            getFragment(NewFilesFlagment())
-        } else if (id == 7) {
-            Toast.makeText(this, "Not data", Toast.LENGTH_SHORT).show()
-        } else if (id == 8) {
-            Toast.makeText(this, "Not data", Toast.LENGTH_SHORT).show()
-        } else if (id == 9) {
-            Toast.makeText(this, "Not data", Toast.LENGTH_SHORT).show()
-        }
-    }
     private fun getFragment(fragment: Fragment?) {
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.fragmentMain, fragment!!)
+        fragmentTransaction.add(R.id.fragmentMain, fragment!!)
         fragmentTransaction.commit()
     }
     companion object {

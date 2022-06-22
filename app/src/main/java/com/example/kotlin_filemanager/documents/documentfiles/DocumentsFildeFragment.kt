@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlin_filemanager.MainActivity
 import com.example.kotlin_filemanager.R
 import com.example.kotlin_filemanager.databinding.FragmentVideoFolderBinding
+import com.example.kotlin_filemanager.image.imagefiles.ImageFileFragment
 import com.example.kotlin_filemanager.model.Item
 import java.io.File
 
@@ -69,5 +70,8 @@ class DocumentsFildeFragment : Fragment(R.layout.fragment_documents_filde) , Doc
         binding.lvFolderVideo.layoutManager =
             LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         adapter.notifyDataSetChanged()
+    }
+    companion object {
+        val TAG: String = DocumentsFildeFragment::class.java.name
     }
 }
